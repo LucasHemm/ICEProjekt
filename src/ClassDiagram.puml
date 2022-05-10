@@ -1,0 +1,77 @@
+@startuml
+class Main
+class Menu
+interface IAlcohol
+abstract class Alcohol
+class Wine
+class Beer
+class Spirits
+class Favourites
+class Database
+class TextUI
+
+Main : + static void main()
+
+Menu : - ArrayList<Alcohol> favourites
+Menu : + void menu():
+Menu : +sortByPrice()
+Menu : +sortByNotes()
+
+Favourites : - ArrayList<Alcohol> listOfFavourites
+Favourites : +void sortByPrice()
+Favourites : + void sortByNotes()
+Favourites : + String toString()
+
+Database : +saveData()
+Database : +loadData()
+
+TextUI : + void get()
+TextUI : + void getInt()
+TextUI : +void Select(ArrayList<String> ArrayLIst)
+TextUI : +void Select(String[] Array)
+
+IAlcohol : +getPrice()
+IAlcohol : +getNotes()
+IAlcohol : +getType()
+
+Alcohol : # float price
+Alcohol : # String type
+Alcohol : # String notes
+Alcohol : +getPrice()
+Alcohol : +getNotes()
+Alcohol : +getType()
+
+Beer : # float price
+Beer : # String type
+Beer : # String notes
+Beer : +getPrice()
+Beer : +getNotes()
+Beer : +getType()
+
+Wine : # float price
+Wine : # String type
+Wine : # String notes
+Wine : +getPrice()
+Wine : +getNotes()
+Wine : +getType()
+
+Spirits : # float price
+Spirits : # String type
+Spirits : # String notes
+Spirits : +getPrice()
+Spirits : +getNotes()
+Spirits : +getType()
+
+Alcohol <|-- Beer
+Alcohol <|-- Wine
+Alcohol <|-- Spirits
+
+IAlcohol -- Alcohol
+
+Menu *-- IAlcohol
+Menu *-- Favourites
+Menu *-- Database
+
+Main *-- Menu
+
+@enduml
