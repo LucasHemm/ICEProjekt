@@ -9,6 +9,7 @@ class Spirits
 class Favourites
 class Database
 class TextUI
+class Person
 
 Main : + static void main()
 
@@ -16,6 +17,13 @@ Menu : - ArrayList<Alcohol> favourites
 Menu : + void menu():
 Menu : +sortByPrice()
 Menu : +sortByNotes()
+
+Person : -String firstName
+Person : -String surname
+Person : -int age
+Person : +getFirstName()
+Person : +getSurname()
+Person : +getAge()
 
 Favourites : - ArrayList<Alcohol> listOfFavourites
 Favourites : +void sortByPrice()
@@ -66,10 +74,12 @@ Alcohol <|-- Beer
 Alcohol <|-- Wine
 Alcohol <|-- Spirits
 
-IAlcohol -- Alcohol
+IAlcohol <|-- Alcohol
 
+Person *-- Favourites
+
+Menu *-- Person
 Menu *-- IAlcohol
-Menu *-- Favourites
 Menu *-- Database
 
 Main *-- Menu
