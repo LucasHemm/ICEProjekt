@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Class Diagram third draft.">
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="TextUI v1 done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ICEProjekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ICEProjekt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +106,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-5.1.49.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -154,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652254548316</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TextUI v1 done">
+      <created>1652256090468</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652256090468</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,6 +183,7 @@
     <MESSAGE value="Class Diagram first draft." />
     <MESSAGE value="Class Diagram second draft." />
     <MESSAGE value="Class Diagram third draft." />
-    <option name="LAST_COMMIT_MESSAGE" value="Class Diagram third draft." />
+    <MESSAGE value="TextUI v1 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="TextUI v1 done" />
   </component>
 </project>
