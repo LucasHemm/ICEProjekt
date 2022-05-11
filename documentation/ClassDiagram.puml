@@ -6,10 +6,10 @@ abstract class Alcohol
 class Wine
 class Beer
 class Spirits
-class Favourites
 class Database
 class TextUI
 class Person
+interface DatabaseIO
 
 Main : + static void main()
 
@@ -25,10 +25,6 @@ Person : +getFirstName()
 Person : +getSurname()
 Person : +getAge()
 
-Favourites : - ArrayList<Alcohol> listOfFavourites
-Favourites : +void sortByPrice()
-Favourites : + void sortByNotes()
-Favourites : + String toString()
 
 Database : +saveData()
 Database : +loadData()
@@ -76,11 +72,13 @@ Alcohol <|-- Spirits
 
 IAlcohol <|-- Alcohol
 
-Person *-- Favourites
+
 
 Menu *-- Person
 Menu *-- IAlcohol
-Menu *-- Database
+Menu *-- DatabaseIO
+
+DatabaseIO <|-- Database
 
 Main *-- Menu
 
