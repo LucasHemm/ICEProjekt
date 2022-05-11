@@ -3,9 +3,9 @@ import java.sql.*;
 public class Database implements IDatabase
 {
     //Fields
-    private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
-    private String username = "root";
-    private String password = "*****"; //Remember to change password**********************
+    private final String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
+    private final String username = "root";
+    private final String password = "*****"; //Remember to change password**********************
     private Connection connection = null;
     private Beer beer;
     private Wine wine;
