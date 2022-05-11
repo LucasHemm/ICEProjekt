@@ -239,23 +239,51 @@ public class Menu {
                         }
 
                         ResultSet resultSet1 = statement1.executeQuery();
-                        ResultSet resultSet2 = statement1.executeQuery();
-                        ResultSet resultSet3 = statement1.executeQuery();
+                        ResultSet resultSet2 = statement2.executeQuery();
+                        ResultSet resultSet3 = statement3.executeQuery();
 
-
+                        String beerToPrint = " ";
                         while (resultSet1.next()) {
 
                             String beerName = resultSet1.getString("Name");
-                            String beerType = resultSet1.getString("numOfPlayers");
-                            String beerPrice = resultSet1.getString("points");
-                            String goalDiff = resultSet1.getString("goalDiff");
+                            String beerType = resultSet1.getString("Type");
+                            int beerPrice = resultSet1.getInt("Price");
+                            String beerNotes = resultSet1.getString("Notes");
+                            String beerCountry = resultSet1.getString("Country");
 
-                            String teamBuild = teamName + ", " + numOfPlayers + ", " + points + ", " + goalDiff;
+
+                             beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+
+                            System.out.println(beerToPrint);
+                        }
+                        while (resultSet2.next()) {
+
+                            String beerName = resultSet1.getString("Name");
+                            String beerType = resultSet1.getString("Type");
+                            int beerPrice = resultSet1.getInt("Price");
+                            String beerNotes = resultSet1.getString("Notes");
+                            String beerCountry = resultSet1.getString("Country");
 
 
-                            teamData[counter] = teamBuild;
+                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
 
-                            counter++;
+                            System.out.println(beerToPrint);
+                        }
+                        while (resultSet3.next()) {
+
+                            String beerName = resultSet1.getString("Name");
+                            String beerType = resultSet1.getString("Type");
+                            int beerPrice = resultSet1.getInt("Price");
+                            String beerNotes = resultSet1.getString("Notes");
+                            String beerCountry = resultSet1.getString("Country");
+
+
+                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+
+                            System.out.println(beerToPrint);
                         }
 
 
@@ -287,6 +315,8 @@ public class Menu {
         System.out.println("> Favorite beer: " + user.getBeer());
         System.out.println("> Favorite wine: " + user.getWine());
         System.out.println("> Favorite spirit: " + user.getSpirit());
+
+
 
     }
 
