@@ -1,3 +1,5 @@
+import java.sql.*;
+
 public class Menu {
 
 //author Lucas
@@ -5,13 +7,18 @@ public class Menu {
     TextUI textUI = new TextUI();
     //DatabaseIO database = new Database();********************
     //Person user;**********************************
+
+    private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
+    private String username = "root";
+    private String password = "*******";
+    private Connection connection = null;
+
     public void Menu(){
 
     }
 
     //method that runs the whole program
     public void run() {
-
         //First menu with 3 choices - Login , Create profile, Login as guest.
         String[] firstMenuChoices = {"Login", "Create Profile", "Login as guest"};
         int firstChoice = textUI.select("Please select a way to load and save your tournament", firstMenuChoices, "");
@@ -47,7 +54,9 @@ public class Menu {
                     break;
 
                 case 1:
-                    // this should use a printUserDetails();
+                    printUserDetails();     //prints user details
+                    System.out.println("Press enter to continue");
+                    textUI.get();
                     break;
 
                 case 2:
@@ -99,6 +108,19 @@ public class Menu {
     }
 
     public void search(){
+
+    }
+
+    public void printUserDetails(){
+
+        System.out.println("> Name: " + user.getFirstName() + " " + user.getLastName + " Age: " + user.getAge());
+        System.out.println("> E-mail: " + user.getEmail());
+        System.out.println("> Password: " + user.getPassword);
+        System.out.println("> Favorite beer: " + user.getBeer());
+        System.out.println("> Favorite wine: " + user.getWine());
+        System.out.println("> Favorite spirit: " + user.getSpirit());
+
+    }
 
     }
 
