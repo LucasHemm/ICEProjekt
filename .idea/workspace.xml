@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Class Diagram first draft.">
-      <change afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Matias wants to save his stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652183165974</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Matias wants to save his stuff">
+      <created>1652290948289</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652290948289</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +167,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class Diagram second draft." />
     <MESSAGE value="Class Diagram first draft." />
-    <option name="LAST_COMMIT_MESSAGE" value="Class Diagram first draft." />
+    <MESSAGE value="Matias wants to save his stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Matias wants to save his stuff" />
   </component>
 </project>
