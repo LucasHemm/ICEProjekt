@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="almost done with the seacrh feature and most of menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Class Diagram second draft.">
+      <change beforePath="$PROJECT_DIR$/src/Alcohol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alcohol.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,16 +16,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -43,6 +37,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="28yE7pdQGMqjtzQTj6BnR80ecQh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -104,15 +101,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-5.1.49.jar" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lijo2\OneDrive\Dokumenter\GitHub\ICEProjekt\documentation" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -125,6 +113,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -149,49 +144,7 @@
       <option name="project" value="LOCAL" />
       <updated>1652183165974</updated>
     </task>
-    <task id="LOCAL-00003" summary="Class Diagram third draft.">
-      <created>1652254548316</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1652254548316</updated>
-    </task>
-    <task id="LOCAL-00004" summary="TextUI v1 done">
-      <created>1652256090468</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1652256090468</updated>
-    </task>
-    <task id="LOCAL-00005" summary="more work done on methods in menu">
-      <created>1652260565940</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1652260565940</updated>
-    </task>
-    <task id="LOCAL-00006" summary="done with printUserDetails();">
-      <created>1652261690681</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652261690681</updated>
-    </task>
-    <task id="LOCAL-00007" summary="almost done with the seacrh feature and most of menu">
-      <created>1652271045165</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1652271045165</updated>
-    </task>
-    <task id="LOCAL-00008" summary="almost done with the seacrh feature and most of menu">
-      <created>1652271679208</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652271679208</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,11 +161,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class Diagram first draft." />
     <MESSAGE value="Class Diagram second draft." />
-    <MESSAGE value="Class Diagram third draft." />
-    <MESSAGE value="TextUI v1 done" />
-    <MESSAGE value="more work done on methods in menu" />
-    <MESSAGE value="done with printUserDetails();" />
-    <MESSAGE value="almost done with the seacrh feature and most of menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost done with the seacrh feature and most of menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class Diagram second draft." />
   </component>
 </project>
