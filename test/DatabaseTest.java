@@ -11,7 +11,7 @@ public class DatabaseTest
     {
         Connection connection = null;
 
-        String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
+        String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
         String username = "root";
         String password = "rottboell1234";
 
