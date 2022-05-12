@@ -60,25 +60,21 @@ public class Menu {
 
     private void menu() {
         boolean on = true;
-
         while(on){
             String[] options = {"Search", "User details", "Surprise me", "Quit"};
             int optionChoice = textUI.select("Choose an option", options, "");
-
             switch(optionChoice){
-
                 case 0:
-                    search();
+                    userSearch();
                     break;
-
                 case 1:
                     printUserDetails();     //prints user details
                     System.out.println("Press enter to continue");
                     textUI.get();
                     break;
-
                 case 2:
-                    //Roulette roulette = new Roulette(); surprise me feature which will give a random type of alcohol.
+                    Roulette roulette = new Roulette();
+                    roulette.run();
                     break;
                 case 3:
                     //this sets the on to false which will in turn make sure that the switch will break which will then
@@ -102,8 +98,6 @@ public class Menu {
 
 
             }
-
-
         }
 
     }
@@ -134,7 +128,7 @@ public class Menu {
 
     }
 
-    public void search(){
+    public void userSearch(){
         boolean check = true;
         boolean alcoholChoiceCheck = true;
         String nameChoice = null;
@@ -143,11 +137,9 @@ public class Menu {
         String notesChoice = null;
         String countrychoice = null;
         String like = "Like";
-
         boolean beerChoice = false;
         boolean wineChoice = false;
         boolean spiritChoice = false;
-
 
         String[] alcoholChoices = {"beer", "wine", "spirit","Continue to search criteria"};
         while(alcoholChoiceCheck){

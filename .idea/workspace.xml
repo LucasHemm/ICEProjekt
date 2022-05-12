@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="merged Lucas into main branch">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ICEProjekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ICEProjekt.iml" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="found the fault in database">
       <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652339515181</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merged the branches">
+      <created>1652341772586</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652341772586</updated>
+    </task>
+    <task id="LOCAL-00006" summary="found the fault in database">
+      <created>1652343250578</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652343250578</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +202,8 @@
     <MESSAGE value="Class Diagram second draft." />
     <MESSAGE value="done with menu and search features v1." />
     <MESSAGE value="merged Lucas into main branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged Lucas into main branch" />
+    <MESSAGE value="merged the branches" />
+    <MESSAGE value="found the fault in database" />
+    <option name="LAST_COMMIT_MESSAGE" value="found the fault in database" />
   </component>
 </project>

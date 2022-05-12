@@ -26,19 +26,37 @@ public class Database implements IDatabase
             statement.setString(3,person.getFirstName());
             statement.setString(4,person.getLastName());
             statement.setInt(5,person.getAge());
-            if(beer != null){
+            /*
+            if(person.getBeer() != null){
                 statement.setInt(6,getIndexFromName(person.getBeer().getName(),"beer"));
             } else
-                statement.setInt(6,0);
+                statement.setInt(6,6);
 
-            if(wine != null){
+            if(person.getWine() != null){
                 statement.setInt(7,getIndexFromName(person.getWine().getName(),"wine"));
             }else
-                statement.setInt(7,0);
-            if(spirit != null){
+                statement.setInt(7,6);
+            if(person.getSpirit() != null){
                 statement.setInt(8,getIndexFromName(person.getSpirit().getName(),"spirit"));
             }else
-                statement.setInt(8,0);
+                statement.setInt(8,6);
+
+
+             */
+
+            if(person.getBeer() != null){
+                statement.setInt(6,2);
+            } else
+                statement.setInt(6,6);
+
+            if(person.getWine() != null){
+                statement.setInt(7,2);
+            }else
+                statement.setInt(7,6);
+            if(person.getSpirit() != null){
+                statement.setInt(8,2);
+            }else
+                statement.setInt(8,6);
 
             int result = statement.executeUpdate();
 
@@ -57,7 +75,7 @@ public class Database implements IDatabase
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM iceprojekt.user where Email = ? AND Password =?");
 
             statement.setString(1,email);
-            statement.setString(2,password);
+            statement.setString(2,password1);
             ResultSet result = statement.executeQuery();
 
             String userEmail = result.getString("Email");
@@ -81,9 +99,6 @@ public class Database implements IDatabase
 
     private Alcohol createAlcoholFromIndex(int index, String Alcoholtype)
     {
-        if(index == 0){
-            return null;
-        }
         PreparedStatement statement;
         String beerString = "beer";
         String wineString = "wine";
@@ -146,15 +161,15 @@ public class Database implements IDatabase
             connection = DriverManager.getConnection(JdbcUrl, username, password);
             if(type.compareToIgnoreCase(beerString)==0)
             {
-                statement = connection.prepareStatement("SELECT ID FROM iceprojekt.beer where Name = ?");
+                statement = connection.prepareStatement("SELECT * FROM iceprojekt.beer where Name = ?");
             }
             else if(type.compareToIgnoreCase(wineString)==0)
             {
-                statement = connection.prepareStatement("SELECT ID FROM iceprojekt.wine where Name = ?");
+                statement = connection.prepareStatement("SELECT *  FROM iceprojekt.wine where Name = ?");
             }
             else
             {
-                statement = connection.prepareStatement("SELECT ID FROM iceprojekt.spirit where Name = ?");
+                statement = connection.prepareStatement("SELECT * FROM iceprojekt.spirits where Name = ?");
             }
             statement.setString(1,name);
             ResultSet result = statement.executeQuery();
@@ -168,6 +183,7 @@ public class Database implements IDatabase
 
         return ID;
     }
+
     /*
     private Beer createBeerFromIndex(int index)
     {
