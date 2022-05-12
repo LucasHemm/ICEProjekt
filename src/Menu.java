@@ -136,7 +136,7 @@ public class Menu {
         String typeChoice = "%";
         int priceChoice = 1;
         String notesChoice = "%";
-        String countrychoice = "%";
+        String countryChoice = "%";
         String like = "Like";
         boolean beerChoice = false;
         boolean wineChoice = false;
@@ -181,6 +181,7 @@ public class Menu {
                     case 1:
                         System.out.println("Please enter the type of alcohol you would like to search for e.g. white wine or pilsner");
                         typeChoice = textUI.get();
+                        typeChoice = "%" + typeChoice + "%";
                         break;
                     case 2:
                         System.out.println("please enter a max amount of money you would like to spend");
@@ -189,10 +190,12 @@ public class Menu {
                     case 3:
                         System.out.println("Please enter notes you would like to search for e.g. oak, berries or sweet");
                         notesChoice = textUI.get();
+                        notesChoice = "%" + notesChoice + "%";
                         break;
                     case 4:
                         System.out.println("Please enter which country you would like to search for");
-                        countrychoice = textUI.get();
+                        countryChoice = textUI.get();
+                        countryChoice = "%" + countryChoice + "%";
                         break;
                     case 5:
                        // PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
@@ -207,7 +210,7 @@ public class Menu {
                             statement1.setString(2, typeChoice);
                             statement1.setInt(3, priceChoice);
                             statement1.setString(4, notesChoice);
-                            statement1.setString(5, countrychoice);
+                            statement1.setString(5, countryChoice);
                             resultSet1 = statement1.executeQuery();
 
                         }
@@ -224,7 +227,7 @@ public class Menu {
                             statement2.setString(2, typeChoice);
                             statement2.setInt(3, priceChoice);
                             statement2.setString(4, notesChoice);
-                            statement2.setString(5, countrychoice);
+                            statement2.setString(5, countryChoice);
                             resultSet2 = statement2.executeQuery();
 
                         }
@@ -239,7 +242,7 @@ public class Menu {
                             statement3.setString(2, typeChoice);
                             statement3.setInt(3, priceChoice);
                             statement3.setString(4, notesChoice);
-                            statement3.setString(5, countrychoice);
+                            statement3.setString(5, countryChoice);
                             resultSet3 = statement3.executeQuery();
 
                         }
