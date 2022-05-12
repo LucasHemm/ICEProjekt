@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Menu {
 
@@ -140,6 +141,233 @@ public class Menu {
         boolean beerChoice = false;
         boolean wineChoice = false;
         boolean spiritChoice = false;
+        ArrayList<Alcohol> alcoholList = new ArrayList<>();
+
+        String[] alcoholChoices = {"beer", "wine", "spirit","Continue to search criteria"};
+        while(alcoholChoiceCheck){
+            int alcoholToSearchFor = textUI.select("Please select which alcohol you would like to search for", alcoholChoices, "");
+            switch (alcoholToSearchFor){
+                case 0:
+                    System.out.println("You have selected to search for beer");
+                    beerChoice = true;
+                    break;
+                case 1:
+                    System.out.println("You have selected to search for wine");
+                    wineChoice = true;
+                    break;
+                case 2:
+                    System.out.println("You have selected to search for spirits");
+                    spiritChoice = true;
+                    break;
+                case 3:
+                    alcoholChoiceCheck = false;
+                    break;
+            }
+        }
+        try{
+            connection = DriverManager.getConnection(JdbcUrl, username, password);
+
+
+            while(check) {
+                String[] searchChoices = {"Name","Type","Price", "Notes", "Country","Complete Search"};
+                int searchChoice = textUI.select("Please select search criteria(s)", searchChoices, "");
+                switch (searchChoice) {
+
+                    case 0:
+                        System.out.println("Please enter the name of the alcohol you would like to search for");
+                        nameChoice = textUI.get();
+                        break;
+                    case 1:
+                        System.out.println("Please enter the type of alcohol you would like to search for e.g. white wine or pilsner");
+                        typeChoice = textUI.get();
+                        break;
+                    case 2:
+                        System.out.println("please enter a max amount of money you would like to spend");
+                        priceChoice = textUI.getInteger();
+                        break;
+                    case 3:
+                        System.out.println("Please enter notes you would like to search for e.g. oak, berries or sweet");
+                        notesChoice = textUI.get();
+                        break;
+                    case 4:
+                        System.out.println("Please enter which country you would like to search for");
+                        countrychoice = textUI.get();
+                        break;
+                    case 5:
+                        if(nameChoice == null){
+                            nameChoice = "IS NOT NULL";
+                            like = "";
+                        }
+                        if(typeChoice == null){
+                            typeChoice = "IS NOT NULL";
+                        }
+                        if(notesChoice == null){
+                            notesChoice = "IS NOT NULL";
+                        }
+                        if(countrychoice == null){
+                            countrychoice = "IS NOT NULL";
+                        }
+
+
+
+                        PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
+                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        if(beerChoice) {
+                            statement1.setString(1, like);
+                            statement1.setString(2, nameChoice);
+                            statement1.setString(3, typeChoice);
+                            statement1.setInt(4, priceChoice);
+                            statement1.setString(5, like);
+                            statement1.setString(6, notesChoice);
+                            statement1.setString(7, like);
+                            statement1.setString(8, countrychoice);
+                        }
+
+                        PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM iceprojekt.wine WHERE Name ? '%?%' && " +
+                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        if(wineChoice) {
+                            statement2.setString(1, like);
+                            statement2.setString(2, nameChoice);
+                            statement2.setString(3, typeChoice);
+                            statement2.setInt(4, priceChoice);
+                            statement2.setString(5, like);
+                            statement2.setString(6, notesChoice);
+                            statement2.setString(7, like);
+                            statement2.setString(8, countrychoice);
+                        }
+
+                        PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits WHERE Name ? '%?%' && " +
+                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        if(spiritChoice) {
+                            statement3.setString(1, like);
+                            statement3.setString(2, nameChoice);
+                            statement3.setString(3, typeChoice);
+                            statement3.setInt(4, priceChoice);
+                            statement3.setString(5, like);
+                            statement3.setString(6, notesChoice);
+                            statement3.setString(7, like);
+                            statement3.setString(8, countrychoice);
+                        }
+
+                        ResultSet resultSet1 = statement1.executeQuery();
+                        ResultSet resultSet2 = statement2.executeQuery();
+                        ResultSet resultSet3 = statement3.executeQuery();
+
+
+                        int counter = 0;
+                        String beerToPrint = " ";
+                        while (resultSet1.next()) {
+
+                            System.out.println("Beer number: " + counter);
+                            String beerName = resultSet1.getString("Name");
+                            String beerType = resultSet1.getString("Type");
+                            int beerPrice = resultSet1.getInt("Price");
+                            String beerNotes = resultSet1.getString("Notes");
+                            String beerCountry = resultSet1.getString("Country");
+
+
+                            Beer beerToAddToFavorite = new Beer(beerName,beerType,beerPrice,beerNotes,beerCountry);
+                            alcoholList.add(beerToAddToFavorite);
+                             beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+
+                            System.out.println(beerToPrint);
+                            counter++;
+                        }
+                        String wineToPrint = " ";
+                        while (resultSet2.next()) {
+
+                            System.out.println("Wine number: " + counter);
+                            String wineName = resultSet1.getString("Name");
+                            String wineType = resultSet1.getString("Type");
+                            int winePrice = resultSet1.getInt("Price");
+                            String wineNotes = resultSet1.getString("Notes");
+                            String wineCountry = resultSet1.getString("Country");
+
+                            Wine wineToAddToFavorite = new Wine(wineName,wineType,winePrice,wineNotes,wineCountry);
+                            alcoholList.add(wineToAddToFavorite);
+
+                            wineToPrint = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
+                                    + winePrice + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
+
+                            System.out.println(wineToPrint);
+                            counter++;
+                        }
+                        String spiritToPrint = " ";
+                        while (resultSet3.next()) {
+
+                            System.out.println("Beer number: " + counter);
+
+                            String spiritName = resultSet1.getString("Name");
+                            String spiritType = resultSet1.getString("Type");
+                            int spiritPrice = resultSet1.getInt("Price");
+                            String spiritNotes = resultSet1.getString("Notes");
+                            String spiritCountry = resultSet1.getString("Country");
+
+                            Spirit spiritToAddToFavorite = new Spirit(spiritName,spiritType,spiritPrice,spiritNotes,spiritCountry);
+                            alcoholList.add(spiritToAddToFavorite);
+
+                            spiritToPrint = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
+                                    + spiritPrice + "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
+
+                            System.out.println(spiritToPrint);
+                            counter++;
+                        }
+
+                        String[] favoriteArr = {"Yes","no"};
+                        int favoriteChoice = textUI.select("Would you like to add any of these alcohol to your favorite?",favoriteArr,"");
+
+                        switch (favoriteChoice){
+                            case 0:
+                                ArrayList<String> alcoholListNames = new ArrayList<>();
+                                for(Alcohol a: alcoholList){
+                                    alcoholListNames.add(a.getName());
+                                }
+                                int alcoholToFavorite = textUI.select("Please select the name of the alcohol you would like to add", alcoholListNames,"");
+                                Alcohol alcoholSave = alcoholList.get(alcoholToFavorite);
+                                if(alcoholSave instanceof Beer){
+                                    user.setBeer((Beer) alcoholSave);
+                                }
+                                if(alcoholSave instanceof Wine){
+                                    user.setWine((Wine) alcoholSave);
+
+                                }
+                                if(alcoholSave instanceof Spirit){
+                                    user.setSpirit((Spirit) alcoholSave);
+                                }
+                                break;
+                            case 1:
+                                System.out.println("Press enter to continue back to main menu" + "DENNE SKAL MÅSKE FJERNES");
+                                textUI.get();
+                                break;
+                        }
+
+                        System.out.println("Press enter to continue");
+                        textUI.get();
+                        check = false;
+                        break;
+                }
+
+            }
+        }
+        catch(SQLException e){
+           e.printStackTrace();
+
+        }
+    }
+
+    public void guestSearch(){
+        boolean check = true;
+        boolean alcoholChoiceCheck = true;
+        String nameChoice = null;
+        String typeChoice = null;
+        int priceChoice = 0;
+        String notesChoice = null;
+        String countrychoice = null;
+        String like = "Like";
+        boolean beerChoice = false;
+        boolean wineChoice = false;
+        boolean spiritChoice = false;
 
         String[] alcoholChoices = {"beer", "wine", "spirit","Continue to search criteria"};
         while(alcoholChoiceCheck){
@@ -261,7 +489,7 @@ public class Menu {
                             String beerCountry = resultSet1.getString("Country");
 
 
-                             beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
                                     + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
 
                             System.out.println(beerToPrint);
@@ -302,18 +530,13 @@ public class Menu {
                 }
 
             }
-
-
-
         }
         catch(SQLException e){
-           e.printStackTrace();
+            e.printStackTrace();
 
         }
-
-
-
     }
+
 
     public void printUserDetails(){
 
@@ -323,8 +546,6 @@ public class Menu {
         System.out.println("> Favorite beer: " + user.getBeer());
         System.out.println("> Favorite wine: " + user.getWine());
         System.out.println("> Favorite spirit: " + user.getSpirit());
-
-
 
     }
 
