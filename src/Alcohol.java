@@ -1,10 +1,10 @@
 public abstract class Alcohol implements IAlcohol {
 
-    String name;
-    String types;
-    int price;
-    String notes;
-    String country;
+    protected String name;
+    protected String types;
+    protected int price;
+    protected String notes;
+    protected String country;
 
     public Alcohol(String name, String types, int price, String notes, String country) {
         this.name = name;
