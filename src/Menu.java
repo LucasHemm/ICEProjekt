@@ -5,12 +5,12 @@ public class Menu {
 //author Lucas
 
     TextUI textUI = new TextUI();
-    DatabaseIO database = new Database();
+    IDatabase database = new Database();
     Person user;
 
-    private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
+    private String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "*******";
+    private String password = "Lucas464!";
     private Connection connection = null;
 
     public void Menu(){
@@ -25,7 +25,11 @@ public class Menu {
 
         switch (firstChoice){
             case 0:
-                user = database.login();
+                System.out.println("Please enter E-Mail to your account.");
+                String userEmail = textUI.get();
+                System.out.println("Please enter your password.");
+                String userPassword = textUI.get();
+                user = database.login(userEmail,userPassword);
                 menu();
                  break;
             case 1:
@@ -64,7 +68,7 @@ public class Menu {
             switch(optionChoice){
 
                 case 0:
-                    // this should then go into the search() menu;
+                    search();
                     break;
 
                 case 1:
@@ -79,6 +83,19 @@ public class Menu {
                 case 3:
                     //this sets the on to false which will in turn make sure that the switch will break which will then
                     //turn of the program
+                    if(user.getBeer()== null){
+                        Beer defaultBeer = new Beer("default","default",0,"deafault","default");
+                        user.setBeer(defaultBeer);
+                    }
+                    if(user.getWine()== null){
+                        Wine defaultWine = new Wine("default","default",0,"deafault","default");
+                        user.setWine(defaultWine);
+                    }
+                    if(user.getSpirit()== null){
+                        Spirit defaultSpirit = new Spirit("default","default",0,"deafault","default");
+                        user.setSpirit(defaultSpirit);
+                    }
+                    database.saveData(user);
                     System.out.println("Thanks for using Drunk Drunk go");
                     on = false;
                     break;
@@ -133,8 +150,8 @@ public class Menu {
 
 
         String[] alcoholChoices = {"beer", "wine", "spirit","Continue to search criteria"};
-        int alcoholToSearchFor = textUI.select("Please select which alcohol you would like to search for", alcoholChoices, "");
         while(alcoholChoiceCheck){
+            int alcoholToSearchFor = textUI.select("Please select which alcohol you would like to search for", alcoholChoices, "");
             switch (alcoholToSearchFor){
                 case 0:
                     System.out.println("You have selected to search for beer");
@@ -308,9 +325,9 @@ public class Menu {
 
     public void printUserDetails(){
 
-        System.out.println("> Name: " + user.getFirstName() + " " + user.getLastName + " Age: " + user.getAge());
+        System.out.println("> Name: " + user.getFirstName() + " " + user.getLastName() + " Age: " + user.getAge());
         System.out.println("> E-mail: " + user.getEmail());
-        System.out.println("> Password: " + user.getPassword);
+        System.out.println("> Password: " + user.getPassword());
         System.out.println("> Favorite beer: " + user.getBeer());
         System.out.println("> Favorite wine: " + user.getWine());
         System.out.println("> Favorite spirit: " + user.getSpirit());
@@ -318,9 +335,5 @@ public class Menu {
 
 
     }
-
-    }
-
-
 
 }

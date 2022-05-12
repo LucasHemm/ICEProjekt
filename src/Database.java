@@ -5,7 +5,7 @@ public class Database implements IDatabase
     //Fields to connect to database
     private final String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private final String username = "root";
-    private final String password = "*****"; //Remember to change password**********************
+    private final String password = "Lucas464!"; //Remember to change password**********************
     private Connection connection = null;
 
     //Fields tto create an instance of the Person class
@@ -26,9 +26,19 @@ public class Database implements IDatabase
             statement.setString(3,person.getFirstName());
             statement.setString(4,person.getLastName());
             statement.setInt(5,person.getAge());
-            statement.setInt(6,getIndexFromName(person.getBeer().getName(),"beer"));
-            statement.setInt(7,getIndexFromName(person.getWine().getName(),"wine"));
-            statement.setInt(8,getIndexFromName(person.getSpirit().getName(),"spirit"));
+            if(beer != null){
+                statement.setInt(6,getIndexFromName(person.getBeer().getName(),"beer"));
+            } else
+                statement.setInt(6,0);
+
+            if(wine != null){
+                statement.setInt(7,getIndexFromName(person.getWine().getName(),"wine"));
+            }else
+                statement.setInt(7,0);
+            if(spirit != null){
+                statement.setInt(8,getIndexFromName(person.getSpirit().getName(),"spirit"));
+            }else
+                statement.setInt(8,0);
 
             int result = statement.executeUpdate();
 
@@ -71,6 +81,9 @@ public class Database implements IDatabase
 
     private Alcohol createAlcoholFromIndex(int index, String Alcoholtype)
     {
+        if(index == 0){
+            return null;
+        }
         PreparedStatement statement;
         String beerString = "beer";
         String wineString = "wine";
