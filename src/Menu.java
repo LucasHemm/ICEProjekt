@@ -11,7 +11,7 @@ public class Menu {
 
     private String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "Lucas464!";
+    private String password = "rottboell1234";
     private Connection connection = null;
 
     public void Menu(){

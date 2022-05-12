@@ -6,7 +6,7 @@ public class Roulette {
     //Fields with log-on information
     private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "*****"; //Remember to change password**********************
+    private String password = "sangill2312"; //Remember to change password**********************
     private Connection connection = null;
 
     private int randomNum(int max) {
@@ -38,8 +38,8 @@ public class Roulette {
                         String beerNote = beerResult.getString("Notes");
                         String beerCountry = beerResult.getString("Country");
 
-                        beerBuild = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
-                                + beerPrice + "\n" + "> Note: " + beerNote + "\n" + "> Country: " + beerCountry;
+                        beerBuild = "Your Surprise Me Beer!" + "\n" + "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" +
+                                "> Price: " + beerPrice + "\n" + "> Note: " + beerNote + "\n" + "> Country: " + beerCountry;
                     }
                         System.out.println(beerBuild);
 
@@ -63,8 +63,8 @@ public class Roulette {
                         String wineCountry = wineResult.getString("Country");
 
 
-                        wineBuild = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
-                                + winePrice + "\n" + "> Note: " + wineNote + "\n" + "> Country: " + wineCountry;
+                        wineBuild = "Your Surprise Me Wine!" + "\n" + "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" +
+                                "> Price: " + winePrice + "\n" + "> Note: " + wineNote + "\n" + "> Country: " + wineCountry;
                     }
                     System.out.println(wineBuild);
 
@@ -73,7 +73,7 @@ public class Roulette {
                 case 2:
 
                     int spiritChoice = randomNum(5);
-                    PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirit where ID = ? ");
+                    PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits where ID = ? ");
                     statement3.setInt(1, spiritChoice);
                     ResultSet spiritResult = statement3.executeQuery();
 
@@ -86,8 +86,8 @@ public class Roulette {
                         String spiritNote = spiritResult.getString("Notes");
                         String spiritCountry = spiritResult.getString("Country");
 
-                        spiritBuild = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
-                                + spiritPrice + "\n" + "> Note: " + spiritNote + "\n" + "> Country: " + spiritCountry;
+                        spiritBuild = "Your Surprise Me Spirit!" + "\n" + "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" +
+                                "> Price: " + spiritPrice + "\n" + "> Note: " + spiritNote + "\n" + "> Country: " + spiritCountry;
                     }
                         System.out.println(spiritBuild);
 

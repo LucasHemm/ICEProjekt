@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="search feature done">
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Fixed Database class and added helper method deleteUser">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +109,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CPH/IT systemer/mysql-connector-java-5.1.49.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -182,35 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652343250578</updated>
     </task>
-    <task id="LOCAL-00007" summary="found the fault in database">
-      <created>1652343533365</created>
+    <task id="LOCAL-00007" summary="Fixed Database class and added helper method deleteUser">
+      <created>1652348620900</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1652343533365</updated>
+      <updated>1652348620900</updated>
     </task>
-    <task id="LOCAL-00008" summary="search feature done v2">
-      <created>1652346494792</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652346494792</updated>
-    </task>
-    <task id="LOCAL-00009" summary="search feature not working with the search criteria.">
-      <created>1652348494556</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652348494556</updated>
-    </task>
-    <task id="LOCAL-00010" summary="search feature done">
-      <created>1652352738977</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1652352738977</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,9 +214,7 @@
     <MESSAGE value="merged Lucas into main branch" />
     <MESSAGE value="merged the branches" />
     <MESSAGE value="found the fault in database" />
-    <MESSAGE value="search feature done v2" />
-    <MESSAGE value="search feature not working with the search criteria." />
-    <MESSAGE value="search feature done" />
-    <option name="LAST_COMMIT_MESSAGE" value="search feature done" />
+    <MESSAGE value="Fixed Database class and added helper method deleteUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Database class and added helper method deleteUser" />
   </component>
 </project>
