@@ -176,6 +176,7 @@ public class Menu {
                     case 0:
                         System.out.println("Please enter the name of the alcohol you would like to search for");
                         nameChoice = textUI.get();
+                        nameChoice = "%" + nameChoice + "%";
                         break;
                     case 1:
                         System.out.println("Please enter the type of alcohol you would like to search for e.g. white wine or pilsner");
@@ -203,15 +204,21 @@ public class Menu {
                         }
                         if(notesChoice == null){
                             notesChoice = "IS NOT NULL";
+                            like = "";
                         }
                         if(countrychoice == null){
                             countrychoice = "IS NOT NULL";
+                            like = "";
                         }
 
 
 
-                        PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                       // PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
+                               // "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%';");
+                        PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? ? && Type = ? && Price <= ? && Notes ? %?% && Country ? %?%");
+
+
+
                         if(beerChoice) {
                             statement1.setString(1, like);
                             statement1.setString(2, nameChoice);
@@ -224,7 +231,7 @@ public class Menu {
                         }
 
                         PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM iceprojekt.wine WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'");
                         if(wineChoice) {
                             statement2.setString(1, like);
                             statement2.setString(2, nameChoice);
@@ -237,7 +244,7 @@ public class Menu {
                         }
 
                         PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'");
                         if(spiritChoice) {
                             statement3.setString(1, like);
                             statement3.setString(2, nameChoice);
