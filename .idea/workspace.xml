@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Database class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Changed JddbcUrl">
+      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652338266500</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changed JddbcUrl">
+      <created>1652338632913</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652338632913</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +226,7 @@
     <MESSAGE value="Matias wants to save his stuff" />
     <MESSAGE value="Database class finished" />
     <MESSAGE value="Database class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database class" />
+    <MESSAGE value="Changed JddbcUrl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed JddbcUrl" />
   </component>
 </project>
