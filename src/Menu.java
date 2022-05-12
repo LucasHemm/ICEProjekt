@@ -11,10 +11,10 @@ public class Menu {
 
     private String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "rottboell1234";
+    private String password = "Lucas464!";
     private Connection connection = null;
 
-    public void Menu(){
+    public Menu(){
 
     }
 
@@ -24,14 +24,20 @@ public class Menu {
         String[] firstMenuChoices = {"Login", "Create Profile", "Login as guest"};
         int firstChoice = textUI.select("Please select a way to load and save your tournament", firstMenuChoices, "");
 
-        switch (firstChoice){
+        switch (firstChoice) {
             case 0:
-                System.out.println("Please enter E-Mail to your account.");
-                String userEmail = textUI.get();
-                System.out.println("Please enter your password.");
-                String userPassword = textUI.get();
-                user = database.login(userEmail,userPassword);
+                while (user == null) {
+                    System.out.println("Please enter E-Mail to your account.");
+                    String userEmail = textUI.get();
+                    System.out.println("Please enter your password.");
+                    String userPassword = textUI.get();
+                    user = database.login(userEmail, userPassword);
+                    if(user == null){
+                        System.out.println("Your E-mail or password is incorrect, please try again.");
+                    }
+                }
                 menu();
+
                  break;
             case 1:
                 System.out.println("Please enter E-Mail");
@@ -266,7 +272,7 @@ public class Menu {
                                 Beer beerToAddToFavorite = new Beer(beerName, beerType, beerPrice, beerNotes, beerCountry);
                                 alcoholList.add(beerToAddToFavorite);
                                 beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
-                                        + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+                                        + beerPrice + " DKK/L" + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
 
                                 System.out.println(beerToPrint + "\n");
                                 counter++;
@@ -287,7 +293,7 @@ public class Menu {
                                 alcoholList.add(wineToAddToFavorite);
 
                                 wineToPrint = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
-                                        + winePrice + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
+                                        + winePrice+ " DKK/L" + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
 
                                 System.out.println(wineToPrint + "\n");
                                 counter++;
@@ -310,7 +316,7 @@ public class Menu {
                                 alcoholList.add(spiritToAddToFavorite);
 
                                 spiritToPrint = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
-                                        + spiritPrice + "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
+                                        + spiritPrice + " DKK/L"+ "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
 
                                 System.out.println(spiritToPrint+ "\n");
                                 counter++;
@@ -346,7 +352,6 @@ public class Menu {
                         }
 
                         System.out.println("Press enter to continue");
-                        System.out.println(user.getBeer() + "THIS IS FAVORITE BEER");
                         textUI.get();
                         check = false;
                         break;
@@ -541,16 +546,12 @@ public class Menu {
         }
     }
 
-
     public void printUserDetails(){
-
         System.out.println("> Name: " + user.getFirstName() + " " + user.getLastName() + " Age: " + user.getAge());
         System.out.println("> E-mail: " + user.getEmail());
         System.out.println("> Password: " + user.getPassword());
         System.out.println("> Favorite beer: " + user.getBeer());
         System.out.println("> Favorite wine: " + user.getWine());
         System.out.println("> Favorite spirit: " + user.getSpirit());
-
     }
-
 }

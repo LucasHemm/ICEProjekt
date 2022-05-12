@@ -6,7 +6,7 @@ public class Roulette {
     //Fields with log-on information
     private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "sangill2312"; //Remember to change password**********************
+    private String password = "Lucas464!"; //Remember to change password**********************
     private Connection connection = null;
 
     private int randomNum(int max) {
@@ -39,7 +39,7 @@ public class Roulette {
                         String beerCountry = beerResult.getString("Country");
 
                         beerBuild = "Your Surprise Me Beer!" + "\n" + "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" +
-                                "> Price: " + beerPrice + "\n" + "> Note: " + beerNote + "\n" + "> Country: " + beerCountry;
+                                "> Price: " + beerPrice+ " DKK/L" + "\n" + "> Note: " + beerNote + "\n" + "> Country: " + beerCountry;
                     }
                         System.out.println(beerBuild);
 
@@ -64,7 +64,7 @@ public class Roulette {
 
 
                         wineBuild = "Your Surprise Me Wine!" + "\n" + "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" +
-                                "> Price: " + winePrice + "\n" + "> Note: " + wineNote + "\n" + "> Country: " + wineCountry;
+                                "> Price: " + winePrice+ " DKK/L" + "\n" + "> Note: " + wineNote + "\n" + "> Country: " + wineCountry;
                     }
                     System.out.println(wineBuild);
 
@@ -87,7 +87,7 @@ public class Roulette {
                         String spiritCountry = spiritResult.getString("Country");
 
                         spiritBuild = "Your Surprise Me Spirit!" + "\n" + "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" +
-                                "> Price: " + spiritPrice + "\n" + "> Note: " + spiritNote + "\n" + "> Country: " + spiritCountry;
+                                "> Price: " + spiritPrice+ " DKK/L" + "\n" + "> Note: " + spiritNote + "\n" + "> Country: " + spiritCountry;
                     }
                         System.out.println(spiritBuild);
 

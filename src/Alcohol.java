@@ -38,4 +38,8 @@ public abstract class Alcohol implements IAlcohol {
     public String getCountry() {
         return country;
     }
+    @Override
+    public String toString(){
+        return getName();
+    }
 }
