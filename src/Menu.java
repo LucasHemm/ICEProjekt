@@ -5,8 +5,8 @@ public class Menu {
 //author Lucas
 
     TextUI textUI = new TextUI();
-    //DatabaseIO database = new Database();********************
-    //Person user;**********************************
+    DatabaseIO database = new Database();
+    Person user;
 
     private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
