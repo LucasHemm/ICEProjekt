@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Changed JddbcUrl" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Class Diagram second draft." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,12 +14,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
-        <option value="Interface" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -104,22 +104,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../ProgramData/Microsoft/Windows/Start Menu/Programs/MySQL" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mrott\Desktop\ICEProjekt" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.DatabaseTest.connectionOpen_connectionClosed">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ICEProjekt" />
@@ -130,19 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DatabaseTest.connectionOpen_connectionClosed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ICEProjekt" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
-      <option name="METHOD_NAME" value="connectionOpen_connectionClosed" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DatabaseTest.connectionOpen_connectionClosed" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -169,49 +149,7 @@
       <option name="project" value="LOCAL" />
       <updated>1652183165974</updated>
     </task>
-    <task id="LOCAL-00003" summary="Matias wants to save his stuff">
-      <created>1652290948289</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1652290948289</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Database class finished">
-      <created>1652292499587</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1652292499587</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Database class">
-      <created>1652292846048</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1652292846048</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Database class">
-      <created>1652338266500</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652338266500</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Changed JddbcUrl">
-      <created>1652338632913</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1652338632913</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Changed JddbcUrl">
-      <created>1652339068239</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652339068239</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,12 +164,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Class Diagram second draft." />
     <MESSAGE value="Class Diagram first draft." />
-    <MESSAGE value="Matias wants to save his stuff" />
-    <MESSAGE value="Database class finished" />
-    <MESSAGE value="Database class" />
-    <MESSAGE value="Changed JddbcUrl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed JddbcUrl" />
+    <MESSAGE value="Class Diagram second draft." />
+    <option name="LAST_COMMIT_MESSAGE" value="Class Diagram second draft." />
   </component>
 </project>
