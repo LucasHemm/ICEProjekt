@@ -5,7 +5,7 @@ public class Database implements IDatabase
     //Fields to connect to database
     private final String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private final String username = "root";
-    private final String password = "Lucas464!"; //Remember to change password**********************
+    private final String password = "rottboell1234"; //Remember to change password**********************
     private Connection connection = null;
 
     //Fields tto create an instance of the Person class
@@ -19,6 +19,8 @@ public class Database implements IDatabase
     {
         try {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
+            deleteUser(person);
+            //Saves the users information
             PreparedStatement statement = connection.prepareStatement("INSERT INTO iceprojekt.user (Email, Password, FirstName, LastName, Age, FavoriteBeer, FavoriteWine, FavoriteSpirit)" +
                     " VALUES(?,?,?,?,?,?,?,?)");
             statement.setString(1,person.getEmail());
@@ -26,37 +28,9 @@ public class Database implements IDatabase
             statement.setString(3,person.getFirstName());
             statement.setString(4,person.getLastName());
             statement.setInt(5,person.getAge());
-            /*
-            if(person.getBeer() != null){
-                statement.setInt(6,getIndexFromName(person.getBeer().getName(),"beer"));
-            } else
-                statement.setInt(6,6);
-
-            if(person.getWine() != null){
-                statement.setInt(7,getIndexFromName(person.getWine().getName(),"wine"));
-            }else
-                statement.setInt(7,6);
-            if(person.getSpirit() != null){
-                statement.setInt(8,getIndexFromName(person.getSpirit().getName(),"spirit"));
-            }else
-                statement.setInt(8,6);
-
-
-             */
-
-            if(person.getBeer() != null){
-                statement.setInt(6,2);
-            } else
-                statement.setInt(6,6);
-
-            if(person.getWine() != null){
-                statement.setInt(7,2);
-            }else
-                statement.setInt(7,6);
-            if(person.getSpirit() != null){
-                statement.setInt(8,2);
-            }else
-                statement.setInt(8,6);
+            statement.setInt(6, getIndexFromName(person.getBeer().getName(), "beer"));
+            statement.setInt(7,getIndexFromName(person.getWine().getName(),"wine"));
+            statement.setInt(8,getIndexFromName(person.getSpirit().getName(),"spirit"));
 
             int result = statement.executeUpdate();
 
@@ -73,21 +47,23 @@ public class Database implements IDatabase
         try {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM iceprojekt.user where Email = ? AND Password =?");
-
             statement.setString(1,email);
             statement.setString(2,password1);
             ResultSet result = statement.executeQuery();
 
-            String userEmail = result.getString("Email");
-            String userPassword = result.getString("Password");
-            String firstName = result.getString("FirstName");
-            String lastName = result.getString("LastName");
-            int age = result.getInt("Age");
-            beer = (Beer) createAlcoholFromIndex(result.getInt("ID"),"beer");
-            wine = (Wine) createAlcoholFromIndex(result.getInt("ID"),"wine");
-            spirit = (Spirit) createAlcoholFromIndex(result.getInt("ID"),"spirit");
+            if(result.next())
+            {
+                String userEmail = result.getString("Email");
+                String userPassword = result.getString("Password");
+                String firstName = result.getString("FirstName");
+                String lastName = result.getString("LastName");
+                int age = result.getInt("Age");
+                beer = (Beer) createAlcoholFromIndex(result.getInt("FavoriteBeer"), "beer");
+                wine = (Wine) createAlcoholFromIndex(result.getInt("FavoriteWine"), "wine");
+                spirit = (Spirit) createAlcoholFromIndex(result.getInt("FavoriteSpirit"), "spirit");
 
-            person = new Person(userEmail, userPassword, firstName, lastName , age, beer, wine, spirit);
+                person = new Person(userEmail, userPassword, firstName, lastName, age, beer, wine, spirit);
+            }
 
         } catch(SQLException e)
         {
@@ -109,38 +85,45 @@ public class Database implements IDatabase
             {
                 statement = connection.prepareStatement("SELECT * FROM iceprojekt.beer where ID = ?");
             }
+
             else if(Alcoholtype.compareToIgnoreCase(wineString)==0)
             {
-                statement = connection.prepareStatement("SELECT ID FROM iceprojekt.wine where ID = ?");
+                statement = connection.prepareStatement("SELECT * FROM iceprojekt.wine where ID = ?");
             }
+
             else
             {
-                statement = connection.prepareStatement("SELECT ID FROM iceprojekt.spirit where ID = ?");
+                statement = connection.prepareStatement("SELECT * FROM iceprojekt.spirits where ID = ?");
+
             }
 
             statement.setInt(1,index);
             ResultSet result = statement.executeQuery();
 
-            String name = result.getString("Name");
-            String type = result.getString("Type");
-            int price = result.getInt("Price");
-            String notes = result.getString("Notes");
-            String country = result.getString("Result");
+           while (result.next())
+            {
+                String name = result.getString("Name");
+                String type = result.getString("Type");
+                int price = result.getInt("Price");
+                String notes = result.getString("Notes");
+                String country = result.getString("Country");
 
-            if(Alcoholtype.compareToIgnoreCase(beerString)==0)
-            {
-                beer = new Beer(name,type,price,notes,country);
-                return beer;
-            }
-            else if(Alcoholtype.compareToIgnoreCase(wineString)==0)
-            {
-                wine = new Wine(name,type,price,notes,country);
-                return wine;
-            }
-            else
-            {
-                spirit = new Spirit(name,type,price,notes,country);
-                return spirit;
+                if (Alcoholtype.compareToIgnoreCase(beerString) == 0)
+                {
+                    beer = new Beer(name, type, price, notes, country);
+                    return beer;
+                }
+                else if (Alcoholtype.compareToIgnoreCase(wineString) == 0)
+                {
+                    wine = new Wine(name, type, price, notes, country);
+                    return wine;
+                }
+                else
+                {
+                    spirit = new Spirit(name, type, price, notes, country);
+                    return spirit;
+                }
+
             }
 
         } catch(SQLException e)
@@ -171,18 +154,40 @@ public class Database implements IDatabase
             {
                 statement = connection.prepareStatement("SELECT * FROM iceprojekt.spirits where Name = ?");
             }
+
+
             statement.setString(1,name);
             ResultSet result = statement.executeQuery();
 
-            ID = result.getInt("ID");
+            while (result.next())
+            {
+                ID = result.getInt("ID");
+            }
 
         } catch(SQLException e)
         {
             e.printStackTrace();
         }
-
         return ID;
     }
+
+    private void deleteUser(Person person)
+    {
+        try {
+            connection = DriverManager.getConnection(JdbcUrl, username, password);
+
+            //Deletes the previous information of the user
+            PreparedStatement delete = connection.prepareStatement("DELETE FROM iceprojekt.user WHERE Email = ? and Password = ?");
+            delete.setString(1,person.getEmail());
+            delete.setString(2, person.getPassword());
+            int delResult = delete.executeUpdate();
+
+        } catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     /*
     private Beer createBeerFromIndex(int index)
