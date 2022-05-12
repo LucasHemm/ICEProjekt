@@ -75,7 +75,7 @@ public class Database implements IDatabase
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM iceprojekt.user where Email = ? AND Password =?");
 
             statement.setString(1,email);
-            statement.setString(2,password);
+            statement.setString(2,password1);
             ResultSet result = statement.executeQuery();
 
             String userEmail = result.getString("Email");
