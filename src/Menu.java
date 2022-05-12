@@ -257,40 +257,39 @@ public class Menu {
 
                             System.out.println(beerToPrint);
                         }
+                        String wineToPrint = " ";
                         while (resultSet2.next()) {
 
-                            String beerName = resultSet1.getString("Name");
-                            String beerType = resultSet1.getString("Type");
-                            int beerPrice = resultSet1.getInt("Price");
-                            String beerNotes = resultSet1.getString("Notes");
-                            String beerCountry = resultSet1.getString("Country");
+                            String wineName = resultSet1.getString("Name");
+                            String wineType = resultSet1.getString("Type");
+                            int winePrice = resultSet1.getInt("Price");
+                            String wineNotes = resultSet1.getString("Notes");
+                            String wineCountry = resultSet1.getString("Country");
 
 
-                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
-                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+                            wineToPrint = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
+                                    + winePrice + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
 
-                            System.out.println(beerToPrint);
+                            System.out.println(wineToPrint);
                         }
+                        String spiritToPrint = " ";
                         while (resultSet3.next()) {
 
-                            String beerName = resultSet1.getString("Name");
-                            String beerType = resultSet1.getString("Type");
-                            int beerPrice = resultSet1.getInt("Price");
-                            String beerNotes = resultSet1.getString("Notes");
-                            String beerCountry = resultSet1.getString("Country");
+                            String spiritName = resultSet1.getString("Name");
+                            String spiritType = resultSet1.getString("Type");
+                            int spiritPrice = resultSet1.getInt("Price");
+                            String spiritNotes = resultSet1.getString("Notes");
+                            String spiritCountry = resultSet1.getString("Country");
 
 
-                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
-                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
+                            beerToPrint = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
+                                    + spiritPrice + "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
 
-                            System.out.println(beerToPrint);
+                            System.out.println(spiritToPrint);
                         }
-
-
+                        System.out.println("Press enter to continue");
+                        textUI.get();
                         break;
-
-
-
                 }
 
             }
