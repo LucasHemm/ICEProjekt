@@ -84,8 +84,6 @@ public class Menu {
                     roulette.run();
                     break;
                 case 3:
-                    //this sets the on to false which will in turn make sure that the switch will break which will then
-                    //turn of the program
                     if(user.getBeer()== null){
                         Beer defaultBeer = new Beer("default","default",0,"deafault","default");
                         user.setBeer(defaultBeer);
@@ -110,19 +108,16 @@ public class Menu {
     }
     private void guestMenu() {
         boolean on = true;
-
         while(on){
             String[] options = {"Search", "Surprise me", "Quit"};
             int optionChoice = textUI.select("Choose an option", options, "");
-
             switch(optionChoice){
-
                 case 0:
-                    // this should then go into the search() menu;
+                    guestSearch();
                     break;
-
                 case 1:
-                    //Roulette roulette = new Roulette(); surprise me feature which will give a random type of alcohol.
+                    Roulette roulette = new Roulette(); //surprise me feature which will give a random type of alcohol.
+                    roulette.run();
                     break;
                 case 2:
                     //this sets the on to false which will in turn make sure that the switch will break which will then
@@ -257,7 +252,7 @@ public class Menu {
 
 
 
-                        int counter = 0;
+                        int counter = 1;
                         String beerToPrint = " ";
                         if(beerChoice) {
                             while (resultSet1.next()){
@@ -368,15 +363,16 @@ public class Menu {
     public void guestSearch(){
         boolean check = true;
         boolean alcoholChoiceCheck = true;
-        String nameChoice = null;
-        String typeChoice = null;
+        String nameChoice = "%";
+        String typeChoice = "%";
         int priceChoice = 1;
-        String notesChoice = null;
-        String countrychoice = null;
+        String notesChoice = "%";
+        String countryChoice = "%";
         String like = "Like";
         boolean beerChoice = false;
         boolean wineChoice = false;
         boolean spiritChoice = false;
+        ArrayList<Alcohol> alcoholList = new ArrayList<>();
 
         String[] alcoholChoices = {"beer", "wine", "spirit","Continue to search criteria"};
         while(alcoholChoiceCheck){
@@ -411,10 +407,12 @@ public class Menu {
                     case 0:
                         System.out.println("Please enter the name of the alcohol you would like to search for");
                         nameChoice = textUI.get();
+                        nameChoice = "%" + nameChoice + "%";
                         break;
                     case 1:
                         System.out.println("Please enter the type of alcohol you would like to search for e.g. white wine or pilsner");
                         typeChoice = textUI.get();
+                        typeChoice = "%" + typeChoice + "%";
                         break;
                     case 2:
                         System.out.println("please enter a max amount of money you would like to spend");
@@ -423,118 +421,135 @@ public class Menu {
                     case 3:
                         System.out.println("Please enter notes you would like to search for e.g. oak, berries or sweet");
                         notesChoice = textUI.get();
+                        notesChoice = "%" + notesChoice + "%";
                         break;
                     case 4:
                         System.out.println("Please enter which country you would like to search for");
-                        countrychoice = textUI.get();
+                        countryChoice = textUI.get();
+                        countryChoice = "%" + countryChoice + "%";
                         break;
                     case 5:
-                        if(nameChoice == null){
-                            nameChoice = "IS NOT NULL";
-                            like = "";
-                        }
-                        if(typeChoice == null){
-                            typeChoice = "IS NOT NULL";
-                        }
-                        if(notesChoice == null){
-                            notesChoice = "IS NOT NULL";
-                        }
-                        if(countrychoice == null){
-                            countrychoice = "IS NOT NULL";
-                        }
+                        // PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
+                        // "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%';");
 
-
-
-                        PreparedStatement statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        PreparedStatement statement1 = null;
+                        ResultSet resultSet1 = null;
                         if(beerChoice) {
-                            statement1.setString(1, like);
-                            statement1.setString(2, nameChoice);
-                            statement1.setString(3, typeChoice);
-                            statement1.setInt(4, priceChoice);
-                            statement1.setString(5, like);
-                            statement1.setString(6, notesChoice);
-                            statement1.setString(7, like);
-                            statement1.setString(8, countrychoice);
+                            statement1 = connection.prepareStatement("SELECT * FROM iceprojekt.beer WHERE Name Like ? && Type Like ? && Price >= ? && Notes Like ? && Country Like ?");
+
+                            statement1.setString(1, nameChoice);
+                            statement1.setString(2, typeChoice);
+                            statement1.setInt(3, priceChoice);
+                            statement1.setString(4, notesChoice);
+                            statement1.setString(5, countryChoice);
+                            resultSet1 = statement1.executeQuery();
+
                         }
 
-                        PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM iceprojekt.wine WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        //PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM iceprojekt.wine WHERE Name ? '%?%' && " +
+                        //      "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'");
+                        PreparedStatement statement2 = null;
+                        ResultSet resultSet2 = null;
+
                         if(wineChoice) {
-                            statement2.setString(1, like);
-                            statement2.setString(2, nameChoice);
-                            statement2.setString(3, typeChoice);
-                            statement2.setInt(4, priceChoice);
-                            statement2.setString(5, like);
-                            statement2.setString(6, notesChoice);
-                            statement2.setString(7, like);
-                            statement2.setString(8, countrychoice);
+                            statement2 = connection.prepareStatement("SELECT * FROM iceprojekt.wine WHERE Name Like ? && Type Like ? && Price >= ? && Notes Like ? && Country Like ?");
+
+                            statement2.setString(1, nameChoice);
+                            statement2.setString(2, typeChoice);
+                            statement2.setInt(3, priceChoice);
+                            statement2.setString(4, notesChoice);
+                            statement2.setString(5, countryChoice);
+                            resultSet2 = statement2.executeQuery();
+
                         }
 
-                        PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits WHERE Name ? '%?%' && " +
-                                "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'; ");
+                        //PreparedStatement statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits WHERE Name ? '%?%' && " +
+                        //      "Type = '?' && Price <= ? && Notes ? '%?%' && Country ? '%?%'");
+                        PreparedStatement statement3 = null;
+                        ResultSet resultSet3 = null;
                         if(spiritChoice) {
-                            statement3.setString(1, like);
-                            statement3.setString(2, nameChoice);
-                            statement3.setString(3, typeChoice);
-                            statement3.setInt(4, priceChoice);
-                            statement3.setString(5, like);
-                            statement3.setString(6, notesChoice);
-                            statement3.setString(7, like);
-                            statement3.setString(8, countrychoice);
+                            statement3 = connection.prepareStatement("SELECT * FROM iceprojekt.spirits WHERE Name Like ? && Type Like ? && Price >= ? && Notes Like ? && Country Like ?");
+                            statement3.setString(1, nameChoice);
+                            statement3.setString(2, typeChoice);
+                            statement3.setInt(3, priceChoice);
+                            statement3.setString(4, notesChoice);
+                            statement3.setString(5, countryChoice);
+                            resultSet3 = statement3.executeQuery();
+
                         }
 
-                        ResultSet resultSet1 = statement1.executeQuery();
-                        ResultSet resultSet2 = statement2.executeQuery();
-                        ResultSet resultSet3 = statement3.executeQuery();
 
+
+
+
+                        int counter = 1;
                         String beerToPrint = " ";
-                        while (resultSet1.next()) {
+                        if(beerChoice) {
+                            while (resultSet1.next()){
+                                System.out.println("Beer number: " + counter);
+                                String beerName = resultSet1.getString("Name");
+                                String beerType = resultSet1.getString("Type");
+                                int beerPrice = resultSet1.getInt("Price");
+                                String beerNotes = resultSet1.getString("Notes");
+                                String beerCountry = resultSet1.getString("Country");
 
-                            String beerName = resultSet1.getString("Name");
-                            String beerType = resultSet1.getString("Type");
-                            int beerPrice = resultSet1.getInt("Price");
-                            String beerNotes = resultSet1.getString("Notes");
-                            String beerCountry = resultSet1.getString("Country");
 
+                                Beer beerToAddToFavorite = new Beer(beerName, beerType, beerPrice, beerNotes, beerCountry);
+                                alcoholList.add(beerToAddToFavorite);
+                                beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
+                                        + beerPrice + " DKK/L" + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
 
-                            beerToPrint = "> Name: " + beerName + "\n" + "> Type: " + beerType + "\n" + "> Price: "
-                                    + beerPrice + "\n" + "> Notes: " + beerNotes + "\n" + "> Country: " + beerCountry;
-
-                            System.out.println(beerToPrint);
+                                System.out.println(beerToPrint + "\n");
+                                counter++;
+                            }
                         }
                         String wineToPrint = " ";
-                        while (resultSet2.next()) {
+                        if(wineChoice) {
+                            while (resultSet2.next()) {
 
-                            String wineName = resultSet1.getString("Name");
-                            String wineType = resultSet1.getString("Type");
-                            int winePrice = resultSet1.getInt("Price");
-                            String wineNotes = resultSet1.getString("Notes");
-                            String wineCountry = resultSet1.getString("Country");
+                                System.out.println("Wine number: " + counter);
+                                String wineName = resultSet2.getString("Name");
+                                String wineType = resultSet2.getString("Type");
+                                int winePrice = resultSet2.getInt("Price");
+                                String wineNotes = resultSet2.getString("Notes");
+                                String wineCountry = resultSet2.getString("Country");
 
+                                Wine wineToAddToFavorite = new Wine(wineName, wineType, winePrice, wineNotes, wineCountry);
+                                alcoholList.add(wineToAddToFavorite);
 
-                            wineToPrint = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
-                                    + winePrice + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
+                                wineToPrint = "> Name: " + wineName + "\n" + "> Type: " + wineType + "\n" + "> Price: "
+                                        + winePrice+ " DKK/L" + "\n" + "> Notes: " + wineNotes + "\n" + "> Country: " + wineCountry;
 
-                            System.out.println(wineToPrint);
+                                System.out.println(wineToPrint + "\n");
+                                counter++;
+                            }
                         }
+
                         String spiritToPrint = " ";
-                        while (resultSet3.next()) {
+                        if(spiritChoice) {
+                            while (resultSet3.next()) {
 
-                            String spiritName = resultSet1.getString("Name");
-                            String spiritType = resultSet1.getString("Type");
-                            int spiritPrice = resultSet1.getInt("Price");
-                            String spiritNotes = resultSet1.getString("Notes");
-                            String spiritCountry = resultSet1.getString("Country");
+                                System.out.println("Beer number: " + counter);
 
+                                String spiritName = resultSet3.getString("Name");
+                                String spiritType = resultSet3.getString("Type");
+                                int spiritPrice = resultSet3.getInt("Price");
+                                String spiritNotes = resultSet3.getString("Notes");
+                                String spiritCountry = resultSet3.getString("Country");
 
-                            beerToPrint = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
-                                    + spiritPrice + "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
+                                Spirit spiritToAddToFavorite = new Spirit(spiritName, spiritType, spiritPrice, spiritNotes, spiritCountry);
+                                alcoholList.add(spiritToAddToFavorite);
 
-                            System.out.println(spiritToPrint);
+                                spiritToPrint = "> Name: " + spiritName + "\n" + "> Type: " + spiritType + "\n" + "> Price: "
+                                        + spiritPrice + " DKK/L"+ "\n" + "> Notes: " + spiritNotes + "\n" + "> Country: " + spiritCountry;
+
+                                System.out.println(spiritToPrint+ "\n");
+                                counter++;
+                            }
                         }
                         System.out.println("Press enter to continue");
                         textUI.get();
+                        check = false;
                         break;
                 }
 
