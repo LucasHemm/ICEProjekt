@@ -6,6 +6,7 @@ public abstract class Alcohol implements IAlcohol {
     protected String notes;
     protected String country;
 
+
     public Alcohol(String name, String types, int price, String notes, String country) {
         this.name = name;
         this.types = types;

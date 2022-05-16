@@ -6,9 +6,9 @@ public class Person
     private String firstName;
     private String lastName;
     private int age;
-    private Beer beer;
-    private Wine wine;
-    private Spirit spirit;
+    private Beer beer = new Beer("default","default",0,"default","default");
+    private Wine wine = new Wine("default","default",0,"default","default");
+    private Spirit spirit = new Spirit("default","default",0,"default","default");
 
 
     //Constructor used for existing users

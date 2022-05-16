@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Drunk Drunk go v1 fully done.">
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="guestMenu and guestSearh are now fully done.">
+      <change afterPath="$PROJECT_DIR$/src/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Alcohol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alcohol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -115,6 +121,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -201,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652355080842</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="guestMenu and guestSearh are now fully done.">
+      <created>1652429552122</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652429552122</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +242,7 @@
     <MESSAGE value="found the fault in database" />
     <MESSAGE value="Fixed Database class and added helper method deleteUser" />
     <MESSAGE value="Drunk Drunk go v1 fully done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Drunk Drunk go v1 fully done." />
+    <MESSAGE value="guestMenu and guestSearh are now fully done." />
+    <option name="LAST_COMMIT_MESSAGE" value="guestMenu and guestSearh are now fully done." />
   </component>
 </project>
