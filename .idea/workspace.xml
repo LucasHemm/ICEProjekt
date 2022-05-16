@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="guestMenu and guestSearh are now fully done.">
-      <change afterPath="$PROJECT_DIR$/src/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
+    <list default="true" id="68e929db-231d-480a-94a1-c191e35ee085" name="Changes" comment="Quiz class done, start of Question class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Alcohol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alcohol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652429552122</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Quiz class done, start of Question class">
+      <created>1652693609231</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652693609231</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +247,7 @@
     <MESSAGE value="Fixed Database class and added helper method deleteUser" />
     <MESSAGE value="Drunk Drunk go v1 fully done." />
     <MESSAGE value="guestMenu and guestSearh are now fully done." />
-    <option name="LAST_COMMIT_MESSAGE" value="guestMenu and guestSearh are now fully done." />
+    <MESSAGE value="Quiz class done, start of Question class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quiz class done, start of Question class" />
   </component>
 </project>

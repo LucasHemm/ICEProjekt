@@ -13,6 +13,7 @@ public class Menu {
     private String username = "root";
     private String password = "Lucas464!";
     private Connection connection = null;
+    Quiz quiz = new Quiz();
 
     public Menu(){
 
@@ -68,7 +69,7 @@ public class Menu {
     private void menu() {
         boolean on = true;
         while(on){
-            String[] options = {"Search", "User details", "Surprise me", "Quit"};
+            String[] options = {"Search", "User details", "Surprise me","Quiz", "Quit"};
             int optionChoice = textUI.select("Choose an option", options, "");
             switch(optionChoice){
                 case 0:
@@ -84,18 +85,9 @@ public class Menu {
                     roulette.run();
                     break;
                 case 3:
-                    if(user.getBeer()== null){
-                        Beer defaultBeer = new Beer("default","default",0,"deafault","default");
-                        user.setBeer(defaultBeer);
-                    }
-                    if(user.getWine()== null){
-                        Wine defaultWine = new Wine("default","default",0,"deafault","default");
-                        user.setWine(defaultWine);
-                    }
-                    if(user.getSpirit()== null){
-                        Spirit defaultSpirit = new Spirit("default","default",0,"deafault","default");
-                        user.setSpirit(defaultSpirit);
-                    }
+                    quiz.quizMenu();
+                    break;
+                case 4:
                     database.saveData(user);
                     System.out.println("Thanks for using Drunk Drunk go");
                     on = false;
@@ -109,7 +101,7 @@ public class Menu {
     private void guestMenu() {
         boolean on = true;
         while(on){
-            String[] options = {"Search", "Surprise me", "Quit"};
+            String[] options = {"Search", "Surprise me", "Quiz", "Quit"};
             int optionChoice = textUI.select("Choose an option", options, "");
             switch(optionChoice){
                 case 0:
@@ -120,16 +112,15 @@ public class Menu {
                     roulette.run();
                     break;
                 case 2:
-                    //this sets the on to false which will in turn make sure that the switch will break which will then
-                    //turn of the program
+                    quiz.quizMenu();
+                    break;
+                case 3:
                     System.out.println("Thanks for using Drunk Drunk go");
                     on = false;
                     break;
             }
         }
-
     }
-
     public void userSearch(){
         boolean check = true;
         boolean alcoholChoiceCheck = true;
