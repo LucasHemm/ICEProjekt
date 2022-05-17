@@ -5,24 +5,30 @@ public class Database implements IDatabase
     //Fields to connect to database
     private final String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private final String username = "root";
-    private final String password = "Lucas464!"; //Remember to change password**********************
+    private final String password = "'******'"; //Remember to change password**********************
     private Connection connection = null;
 
-    //Fields tto create an instance of the Person class
+    //Fields to create an instance of the Person class
     private Beer beer;
     private Wine wine;
     private Spirit spirit;
 
 
+
+    //Takes an instance of the Person class and saves it in database
     @Override
     public void saveData(Person person)
     {
-        try {
+        try
+        {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
+            //Deletes the previous information of a user in the database
             deleteUser(person);
             //Saves the users information
             PreparedStatement statement = connection.prepareStatement("INSERT INTO iceprojekt.user (Email, Password, FirstName, LastName, Age, FavoriteBeer, FavoriteWine, FavoriteSpirit)" +
                     " VALUES(?,?,?,?,?,?,?,?)");
+
+            //The user´s information
             statement.setString(1,person.getEmail());
             statement.setString(2,person.getPassword());
             statement.setString(3,person.getFirstName());
@@ -40,18 +46,23 @@ public class Database implements IDatabase
         }
     }
 
+
+    //Takes two strings in form of an E-mail and a password and loads information for in the database
     @Override
     public Person login(String email, String password1)
     {
         Person person = null;
-        try {
+        try
+        {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM iceprojekt.user where Email = ? AND Password =?");
             statement.setString(1,email);
             statement.setString(2,password1);
             ResultSet result = statement.executeQuery();
 
-            if(result.next())
+
+            //Creates an instance of the Person class with the user-information from the database
+            while(result.next())
             {
                 String userEmail = result.getString("Email");
                 String userPassword = result.getString("Password");
@@ -73,14 +84,19 @@ public class Database implements IDatabase
         return person;
     }
 
+
+    //Takes an integer as an index and a String to determine which alcohol in which database shall be created
     private Alcohol createAlcoholFromIndex(int index, String Alcoholtype)
     {
         PreparedStatement statement;
         String beerString = "beer";
         String wineString = "wine";
 
-        try {
+        try
+        {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
+
+            //If statement to check which database shall be used
             if(Alcoholtype.compareToIgnoreCase(beerString)==0)
             {
                 statement = connection.prepareStatement("SELECT * FROM iceprojekt.beer where ID = ?");
@@ -100,6 +116,7 @@ public class Database implements IDatabase
             statement.setInt(1,index);
             ResultSet result = statement.executeQuery();
 
+            //The information of the alcohol
            while (result.next())
             {
                 String name = result.getString("Name");
@@ -108,6 +125,8 @@ public class Database implements IDatabase
                 String notes = result.getString("Notes");
                 String country = result.getString("Country");
 
+
+                //If statements to check which Class the alcohol shall be an instance of
                 if (Alcoholtype.compareToIgnoreCase(beerString) == 0)
                 {
                     beer = new Beer(name, type, price, notes, country);
@@ -133,6 +152,8 @@ public class Database implements IDatabase
         return null;
     }
 
+
+    //Takes two Strings to determine which alcohol's, in which database, index is needed.
     private int getIndexFromName(String name, String type)
     {
         int ID = 0;
@@ -140,7 +161,8 @@ public class Database implements IDatabase
         String beerString = "beer";
         String wineString = "wine";
 
-        try {
+        try
+        {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
             if(type.compareToIgnoreCase(beerString)==0)
             {
@@ -159,6 +181,7 @@ public class Database implements IDatabase
             statement.setString(1,name);
             ResultSet result = statement.executeQuery();
 
+            //Gets the ID
             while (result.next())
             {
                 ID = result.getInt("ID");
@@ -171,9 +194,11 @@ public class Database implements IDatabase
         return ID;
     }
 
+    //Deletes the previous information of a user in the database
     private void deleteUser(Person person)
     {
-        try {
+        try
+        {
             connection = DriverManager.getConnection(JdbcUrl, username, password);
 
             //Deletes the previous information of the user

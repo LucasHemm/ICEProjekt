@@ -6,6 +6,8 @@ public class Person
     private String firstName;
     private String lastName;
     private int age;
+
+    //Default values a user has, before they choose a favourite of each type
     private Beer beer = new Beer("default","default",0,"default","default");
     private Wine wine = new Wine("default","default",0,"default","default");
     private Spirit spirit = new Spirit("default","default",0,"default","default");
@@ -42,19 +44,9 @@ public class Person
         return email;
     }
 
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
     public String getPassword()
     {
         return password;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = password;
     }
 
     public String getFirstName()
@@ -62,29 +54,14 @@ public class Person
         return firstName;
     }
 
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
-    }
-
     public String getLastName()
     {
         return lastName;
     }
 
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
-    }
-
     public int getAge()
     {
         return age;
-    }
-
-    public void setAge(int age)
-    {
-        this.age = age;
     }
 
     public Beer getBeer()
