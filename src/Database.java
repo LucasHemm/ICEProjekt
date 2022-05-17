@@ -5,7 +5,7 @@ public class Database implements IDatabase
     //Fields to connect to database
     private final String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private final String username = "root";
-    private final String password = "Lucas464!"; //Remember to change password**********************
+    private final String password = "*******"; //Remember to change password**********************
     private Connection connection = null;
 
     //Fields tto create an instance of the Person class

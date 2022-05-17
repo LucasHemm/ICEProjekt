@@ -10,7 +10,7 @@ public class Quiz {
     private TextUI textUI = new TextUI();
 
 
-    public Quiz(){
+    public Quiz(){ // when a quiz object is created it will immediatly create the different questions the user can get asked.
         // BEERS
 
         String[] beerArray1 = {"Ignore panda awareness","Indian pale ale", "Indian proud ale", "Indonesian pale ale"};
@@ -55,23 +55,23 @@ public class Quiz {
 
     }
 
-    public void quizMenu(){
+    public void quizMenu(){ // this is the quiz menu where the user can choose what types of questions to answer
         while(check){
             String[] choices = {"Beer question", "Wine question", "Spirit question", "Return to main menu"};
-            int choice = textUI.select("Please select an option", choices,"");
+            int choice = textUI.select("Please select a question", choices,"");
 
             switch(choice){
 
-                case 0:
+                case 0: // asks a beer question
                     runBeer();
                     break;
-                case 1:
+                case 1: // asks a wine questions
                     runWine();
                     break;
-                case 2:
+                case 2: // asks a spirit question
                     runSpirit();
                     break;
-                case 3:
+                case 3: // goes back to main menu
                     check = false;
                     System.out.println("Thanks for trying the quiz.");
                     break;
@@ -80,26 +80,26 @@ public class Quiz {
     }
 
 
-    private void runBeer(){
-        Question tmpQuestion = beerQuestions.remove();
-        tmpQuestion.askQuestion();
-        beerQuestions.add(tmpQuestion);
+    private void runBeer(){ //this asks the head of the beer questions queue.
+        Question tmpQuestion = beerQuestions.remove(); // the question gets removed and stored
+        tmpQuestion.askQuestion(); // the question is printed to the user where they then can guess.
+        beerQuestions.add(tmpQuestion); //the former head of the queue is then added back into the queue at the start.
         System.out.println("Press enter to continue");
         textUI.get();
     }
 
-    private void runWine(){
-        Question tmpQuestion = wineQuestions.remove();
-        tmpQuestion.askQuestion();
-        wineQuestions.add(tmpQuestion);
+    private void runWine(){ //this asks the head of the wine questions queue.
+        Question tmpQuestion = wineQuestions.remove(); // the question gets removed and stored
+        tmpQuestion.askQuestion(); // the question is printed to the user where they then can guess.
+        wineQuestions.add(tmpQuestion); //the former head of the queue is then added back into the queue at the start.
         System.out.println("Press enter to continue");
         textUI.get();
     }
 
-    private void runSpirit(){
-        Question tmpQuestion = spiritQuestions.remove();
-        tmpQuestion.askQuestion();
-        spiritQuestions.add(tmpQuestion);
+    private void runSpirit(){ //this asks the head of the spirit questions queue.
+        Question tmpQuestion = spiritQuestions.remove(); // the question gets removed and stored
+        tmpQuestion.askQuestion(); // the question is printed to the user where they then can guess.
+        spiritQuestions.add(tmpQuestion); //the former head of the queue is then added back into the queue at the start.
         System.out.println("Press enter to continue");
         textUI.get();
     }

@@ -6,7 +6,7 @@ public class Roulette {
     //Fields with log-on information
     private String JdbcUrl = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "Lucas464!"; //Remember to change password**********************
+    private String password = "*****"; //Remember to change password**********************
     private Connection connection = null;
 
     private int randomNum(int max) {
