@@ -9,38 +9,60 @@ class Spirits
 class Database
 class TextUI
 class Person
+class Quiz
+class Question
 interface DatabaseIO
 
 Main : + static void main()
 
-Menu : - ArrayList<Alcohol> favourites
-Menu : + void menu():
-Menu : +sortByPrice()
-Menu : +sortByNotes()
+Menu : +Menu()
+Menu : +void menu()
+Menu : +void run()
+Menu : +void userSearch()
+Menu : +void guestMenu()
+Menu : +void guestSearch()
 
+Person : +Person(String email, String password, String firstName, String lastName, int age)
+Person : +Person(String email, String password, String firstName, String lastName, int age, Beer beer, Wine wine, Spirit spirit)
 Person : -String firstName
 Person : -String surname
 Person : -int age
 Person : +getFirstName()
-Person : +getSurname()
-Person : +getAge()
+Person : +getLastName()
+Person : +int getAge()
+Person : +String getEmail()
+Person : +String getPassword()
+Person : +Beer getBeer()
+Person : +Spirit getSpirit()
+Person : +Wine getWine()
+Person : +void setBeer()
+Person : +void setWine()
+Person : +void setSpirit
 
 
-Database : +saveData()
-Database : +loadData()
+Database : +void saveData(Person)
+Database : +Alcohol createAlcoholFromIndex(int index, String Alcoholtype)
+Database : +void deleteUser(Person)
+Database : +Person login(String email, String password1)
+Database : +int getIndexFromName(String name, String type)
 
-TextUI : + void get()
-TextUI : + void getInt()
-TextUI : +void Select(ArrayList<String> ArrayLIst)
-TextUI : +void Select(String[] Array)
+TextUI : +TextUI()
+TextUI : +String get()
+TextUI : +int getInteger()
+TextUI : +int getInteger(int min, int max)
+TextUI : +int select(ArrayList<String> ArrayLIst)
+TextUI : +int select(String[] Array)
 
 IAlcohol : +getPrice()
 IAlcohol : +getNotes()
 IAlcohol : +getType()
+IAlcohol : +getName()
+IAlcohol : +getCountry()
 
 Alcohol : # float price
 Alcohol : # String type
 Alcohol : # String notes
+Alcohol : +Alcohol(String name, String types, int price, String notes, String country)
 Alcohol : +getPrice()
 Alcohol : +getNotes()
 Alcohol : +getType()
@@ -48,6 +70,7 @@ Alcohol : +getType()
 Beer : # float price
 Beer : # String type
 Beer : # String notes
+Beer : +Beer(String name, String types, int price, String notes, String country)
 Beer : +getPrice()
 Beer : +getNotes()
 Beer : +getType()
@@ -55,6 +78,7 @@ Beer : +getType()
 Wine : # float price
 Wine : # String type
 Wine : # String notes
+Wine : +Wine(String name, String types, int price, String notes, String country)
 Wine : +getPrice()
 Wine : +getNotes()
 Wine : +getType()
@@ -62,9 +86,23 @@ Wine : +getType()
 Spirits : # float price
 Spirits : # String type
 Spirits : # String notes
+Spirits : +Spirit(String name, String types, int price, String notes, String country)
 Spirits : +getPrice()
 Spirits : +getNotes()
 Spirits : +getType()
+
+Quiz : +Quiz()
+Quiz : +void quizMenu()
+Quiz : +void runBeer()
+Quiz : +void runWine()
+Quiz : +void runSpirit()
+
+Question : +Question(String questionToBeAnswered, String[] answers, int correctAnswer)
+Question : +void askQuestion()
+
+Quiz *-- Menu
+
+Question *-- Quiz
 
 Alcohol <|-- Beer
 Alcohol <|-- Wine

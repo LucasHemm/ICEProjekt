@@ -1,3 +1,4 @@
+//Abstract class extending to Beer, Wine and Spirit class
 public abstract class Alcohol implements IAlcohol {
 
     protected String name;
@@ -7,6 +8,7 @@ public abstract class Alcohol implements IAlcohol {
     protected String country;
 
 
+    //Constructor
     public Alcohol(String name, String types, int price, String notes, String country) {
         this.name = name;
         this.types = types;
