@@ -37,7 +37,7 @@ Person : +Spirit getSpirit()
 Person : +Wine getWine()
 Person : +void setBeer()
 Person : +void setWine()
-Person : +void setSpirit
+Person : +void setSpirit()
 
 
 Database : +void saveData(Person)
@@ -100,9 +100,9 @@ Quiz : +void runSpirit()
 Question : +Question(String questionToBeAnswered, String[] answers, int correctAnswer)
 Question : +void askQuestion()
 
-Quiz *-- Menu
+Menu *-- Quiz
 
-Question *-- Quiz
+Quiz *-- Question
 
 Alcohol <|-- Beer
 Alcohol <|-- Wine

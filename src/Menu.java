@@ -11,7 +11,7 @@ public class Menu {
 
     private String JdbcUrl = "jdbc:mysql://localhost/iceprojekt?" + "autoReconnect=true&useSSL=false";
     private String username = "root";
-    private String password = "******";
+    private String password = "Lucas464!";
     private Connection connection = null;
     Quiz quiz = new Quiz();
 
@@ -159,7 +159,6 @@ public class Menu {
         try{
             connection = DriverManager.getConnection(JdbcUrl, username, password);
 
-
             while(check) { // this is where the user can choose all the different parameters to search.
                 String[] searchChoices = {"Name","Type","Price", "Notes", "Country","Complete Search"};
                 int searchChoice = textUI.select("Please select search criteria(s)", searchChoices, "");
@@ -219,7 +218,6 @@ public class Menu {
 
                         }
 
-
                         PreparedStatement statement3 = null;
                         ResultSet resultSet3 = null;
                         if(spiritChoice) { // this searches in the spirit table of the database for all spirits which match the users criteria
@@ -232,10 +230,6 @@ public class Menu {
                             resultSet3 = statement3.executeQuery();
 
                         }
-
-
-
-
 
                         int counter = 1;
                         String beerToPrint = " ";
@@ -514,7 +508,7 @@ public class Menu {
                         if(spiritChoice) {
                             while (resultSet3.next()) {
 
-                                System.out.println("Beer number: " + counter);
+                                System.out.println("Spirit number: " + counter);
 
                                 String spiritName = resultSet3.getString("Name");
                                 String spiritType = resultSet3.getString("Type");
